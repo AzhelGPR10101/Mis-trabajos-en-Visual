@@ -1,0 +1,4 @@
+Hola, estudiantes de POO II
+Este archivo lo creó Python
+Cuenca - Ecuador
+Línea agregada después
