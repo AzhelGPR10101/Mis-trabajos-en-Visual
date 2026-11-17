@@ -1,0 +1,5 @@
+cedula: 0102030405
+nombre: Gerard Perez
+Edad: 21
+Direccion: Avenida siempre viva 123
+Correo: example@gmail.com

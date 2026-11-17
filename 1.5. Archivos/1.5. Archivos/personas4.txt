@@ -1,0 +1,30 @@
+Personas1
+nombre: Santiago
+edad: 18
+direccion: Av.Loja
+cedula: 0107434227
+correo: ariel@gmail.com
+Personas2
+nombre: Dome
+edad: 20
+direccion: Av.Loja
+cedula: 0107434227
+correo: dome@gmail.com
+Personas3
+nombre: Karen
+edad: 22
+direccion: Av.Loja
+cedula: 0107434227
+correo: karen@gmail.com
+Personas4
+nombre: Gerdad
+edad: 24
+direccion: Av.Loja
+cedula: 0107434227
+correo: gerard@gmail.com
+Personas5
+nombre: Daniel
+edad: 26
+direccion: Av.Loja
+cedula: 0107434227
+correo: daniel@gmail.com

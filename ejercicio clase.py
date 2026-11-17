@@ -1,8 +1,12 @@
-def p1():
-    print("datos = (10, 20, 30)")
-    print("datos[1] = 99")
-    print("print(datos)")
+def mostrar_codigo(codigo):
+    print(codigo)
     print("\nResultado:")
+
+
+def p1():
+    mostrar_codigo("""datos = (10, 20, 30)
+datos[1] = 99
+print(datos)""")
     datos = (10, 20, 30)
     try:
         datos[1] = 99
@@ -12,11 +16,10 @@ def p1():
 
 
 def p2():
-    print("a = [1, 2, 3]")
-    print("b = a")
-    print("b[0] = 5")
-    print("print(a)")
-    print("\nResultado:")
+    mostrar_codigo("""a = [1, 2, 3]
+b = a
+b[0] = 5
+print(a)""")
     a = [1, 2, 3]
     b = a
     b[0] = 5
@@ -24,33 +27,29 @@ def p2():
 
 
 def p3():
-    print('frase = "aprendo Python en TEC"')
-    print("print(len(frase.split()))")
-    print("\nResultado:")
+    mostrar_codigo("""frase = "aprendo Python en TEC"
+print(len(frase.split()))""")
     frase = "aprendo Python en TEC"
     print(len(frase.split()))
 
 
 def p4():
-    print("print(int(9.99))")
-    print("\nResultado:")
+    mostrar_codigo("print(int(9.99))")
     print(int(9.99))
 
 
 def p5():
-    print("print(type(10.0))")
-    print("\nResultado:")
+    mostrar_codigo("print(type(10.0))")
     print(type(10.0))
 
 
 def p6():
-    print("suma = 0")
-    print("for n in range(1, 5):")
-    print("    if n % 2 != 0:")
-    print("        continue")
-    print("    suma += n")
-    print("print(suma)")
-    print("\nResultado:")
+    mostrar_codigo("""suma = 0
+for n in range(1, 5):
+    if n % 2 != 0:
+        continue
+    suma += n
+print(suma)""")
     suma = 0
     for n in range(1, 5):
         if n % 2 != 0:
@@ -60,38 +59,34 @@ def p6():
 
 
 def p7():
-    print("print([n ** 2 for n in [1, 2, 3, 4] if n % 2 == 0])")
-    print("\nResultado:")
+    mostrar_codigo("print([n ** 2 for n in [1, 2, 3, 4] if n % 2 == 0])")
     print([n ** 2 for n in [1, 2, 3, 4] if n % 2 == 0])
 
 
 def p8():
-    print("for i in range(1, 10, 3):")
-    print('    print(i, end=" ")')
-    print("\nResultado:")
+    mostrar_codigo("""for i in range(1, 10, 3):
+    print(i, end=" ")""")
     for i in range(1, 10, 3):
         print(i, end=" ")
     print()
 
 
 def p9():
-    print("for i in range(3, 0, -1):")
-    print('    print(i, end=" ")')
-    print("\nResultado:")
+    mostrar_codigo("""for i in range(3, 0, -1):
+    print(i, end=" ")""")
     for i in range(3, 0, -1):
         print(i, end=" ")
     print()
 
 
 def p10():
-    print("saldo = 350")
-    print("if saldo >= 1000:")
-    print('    print("Oro")')
-    print("elif saldo >= 100:")
-    print('    print("Plata")')
-    print("else:")
-    print('    print("Básica")')
-    print("\nResultado:")
+    mostrar_codigo("""saldo = 350
+if saldo >= 1000:
+    print("Oro")
+elif saldo >= 100:
+    print("Plata")
+else:
+    print("Básica")""")
     saldo = 350
     if saldo >= 1000:
         print("Oro")
@@ -102,17 +97,16 @@ def p10():
 
 
 def p11():
-    print("Pida números enteros con input() hasta que el usuario escriba fin.")
-    print("Guárdelos en una lista y con comprensiones cree una lista de pares")
-    print("y otra de impares. Muestre ambas ordenadas y la suma de cada una.")
-    print("\nResultado:")
+    mostrar_codigo("""Pida números enteros con input() hasta que el usuario escriba fin.
+Guárdelos en una lista y con comprensiones cree una lista de pares
+y otra de impares. Muestre ambas ordenadas y la suma de cada una.""")
     numeros = []
     while True:
-        t = input("Número entero (fin para terminar): ")
-        if t.lower() == "fin":
+        texto = input("Número entero (fin para terminar): ")
+        if texto.lower() == "fin":
             break
         try:
-            numeros.append(int(t))
+            numeros.append(int(texto))
         except ValueError:
             print("Entrada inválida.")
     pares = sorted([n for n in numeros if n % 2 == 0])
@@ -138,46 +132,60 @@ PREGUNTAS = [
 
 def pedir(mensaje, validas):
     while True:
-        v = input(mensaje).strip()
-        if v in validas:
-            return v
+        opcion = input(mensaje).strip()
+        if opcion in validas:
+            return opcion
         print("Opción inválida.")
-
-
-def mostrar(i):
-    titulo, func = PREGUNTAS[i]
-    print(f"\nPregunta {i + 1}: {titulo}\n")
-    func()
-
-
+        
 def menu_preguntas():
-    salir, volver = str(len(PREGUNTAS) + 1), str(len(PREGUNTAS) + 2)
-    validas = [str(n) for n in range(1, len(PREGUNTAS) + 3)]
+    total = len(PREGUNTAS)
+    salir = str(total + 1)
+    volver = str(total + 2)
+    validas = [str(n) for n in range(1, total + 3)]
+
     while True:
         print("\nMenú de preguntas")
-        for i, (titulo, _) in enumerate(PREGUNTAS, 1):
-            print(f"{i}. {titulo}")
-        print(f"{salir}. Salir\n{volver}. Regresar al menú principal")
-        op = pedir("Opción: ", validas)
-        if op == salir:
+        for i in range(total):
+            print(f"{i + 1}. {PREGUNTAS[i][0]}")
+        print(f"{salir}. Salir")
+        print(f"{volver}. Regresar al menú principal")
+
+        opcion = pedir("Opción: ", validas)
+        if opcion == salir:
             return True
-        if op == volver:
+        if opcion == volver:
             return False
-        mostrar(int(op) - 1)
-        pedir("\n1. Regresar al menú\nOpción: ", ("1",))
+
+        titulo, funcion = PREGUNTAS[int(opcion) - 1]
+        print(f"\nPregunta {opcion}: {titulo}\n")
+        funcion()
+        pedir("\n1. Regresar al menú\nOpción: ", ["1"])
 
 
-print("¡Bienvenido al menú de ejercicios de Python!")
-nombre = ""
-while True:
-    print("\nMenú principal\n1. Ingresar nombre\n2. Menú de preguntas\n3. Salir")
-    op = pedir("Opción: ", ("1", "2", "3"))
-    if op == "1":
-        nombre = input("Nombre: ").strip()
-        print(f"Hola, {nombre}.")
-    elif op == "2":
-        if menu_preguntas():
+def main():
+    print("¡Bienvenido al menú de ejercicios de Python!")
+    nombre = ""
+
+    while True:
+        print("\nMenú principal")
+        print("1. Ingresar nombre")
+        print("2. Menú de preguntas")
+        print("3. Salir")
+        opcion = pedir("Opción: ", ["1", "2", "3"])
+
+        if opcion == "1":
+            nombre = input("Nombre: ").strip()
+            print(f"Hola, {nombre}.")
+        elif opcion == "2":
+            if menu_preguntas():
+                break
+        else:
             break
+
+    if nombre == "":
+        print("¡Hasta luego!")
     else:
-        break
-print(f"¡Hasta luego{', ' + nombre if nombre else ''}!")
+        print(f"¡Hasta luego, {nombre}!")
+
+
+main()

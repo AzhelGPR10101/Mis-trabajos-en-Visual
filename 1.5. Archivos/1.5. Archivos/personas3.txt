@@ -1,0 +1,6 @@
+persona_1 = ('0102030405', 'Ana', 28, 'Ingeniera', 'Avenida siempre viva 123', 'ana@gmail.com')
+persona_2 = ('0102030406', 'Carlos', 35, 'Diseñador', 'Calle Larga 456', 'carlos@gmail.com')
+persona_3 = ('0102030407', 'Lucía', 42, 'Médica', 'Av. Solano 789', 'lucia@gmail.com')
+persona_4 = ('0102030408', 'David', 23, 'Estudiante', 'Calle Bolívar 321', 'david@gmail.com')
+persona_5 = ('0102030409', 'Elena', 51, 'Arquitecta', 'Av. Loja 654', 'elena@gmail.com')
+persona_6 = ('0102030410', 'Mario', 30, 'Abogado', 'Calle Sucre 111', 'mario@gmail.com')
